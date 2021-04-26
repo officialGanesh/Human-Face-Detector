@@ -26,11 +26,21 @@ def Detect_faces():
 
     except Exception as e:
         print("Something went wrong --> ",e)
+    
 
+    def Rect_face():
+        """This function is used to draw shape on the detected faces """
+        
+        for (x,y,w,h) in face_coordinates:
+            rect_face = cv.rectangle(img,(x,y),(x+w,y+h),(randrange(256),randrange(256),randrange(256)),2)
+
+        cv.imshow("Face-Detected",rect_face)
+
+    Rect_face()
 
 if __name__ == "__main__":
     Detect_faces()
-
+    
     cv.waitKey(0)
     cv.destroyAllWindows()
     print("Code Completed 🔥")
